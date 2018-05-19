@@ -1,3 +1,6 @@
+body {
+    background-image: url(../images/light-grey-terrazzo.png);
+}
 header {
     color: palevioletred;
     font-family: 'Pacifico', cursive;
@@ -11,8 +14,8 @@ header {
     padding-left: 20px;
 }
 .container {
-    color: lightpink;
-    background-color: lightslategray;
+    color: hotpink;
+    background-color: lightgrey;
     font-size: 18px;
     margin-top: 20px;
     margin-right: 75%;
