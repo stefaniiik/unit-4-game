@@ -9,26 +9,28 @@ $(document).ready(function () {
     var num2 = Math.floor(Math.random() * 11 + 1)
     var num3 = Math.floor(Math.random() * 11 + 1)
     var num4 = Math.floor(Math.random() * 11 + 1)
+    total = 0;
+
 
     // variables for scores
     var total = 0;
     var wins = 0;
     var losses = 0;
 
-    $("#wins").text(wins);
-    $("#losses").text(losses);
+    $("#wins").text("Win:" + wins);
+    $("#losses").text("Losses:" + losses);
 
     // adding total wins
     function winner() {
         wins++;
-        $("#wins").text(wins);
+        $("#wins").text("Wins:" + wins);
     }
 
     // adding total losses
     function losing() {
         losses++;
-        $("#losses").text(losses);
-        reset()
+        $("#losses").text("Losses:" + losses);
+        reset();
     }
     // on click for jewels
 
@@ -36,18 +38,18 @@ $(document).ready(function () {
     function reset() {
         random = Math.floor(Math.random() * 120 + 19);
         $(".randomNumber").text(random);
-        num1 = Mathfloor(Math.random() * 11 + 1);
-        num2 = Mathfloor(Math.random() * 11 + 1);
-        num3 = Mathfloor(Math.random() * 11 + 1);
-        num4 = Mathfloor(Math.random() * 11 + 1);
+        num1 = Math.floor(Math.random() * 11 + 1);
+        num2 = Math.floor(Math.random() * 11 + 1);
+        num3 = Math.floor(Math.random() * 11 + 1);
+        num4 = Math.floor(Math.random() * 11 + 1);
         total = 0;
-        $(".yourScore").text(total);
+        $(".score").text(total);
     }
-
+// random number assigned to each crystal 
     $('#crystal1').on('click', function () {
         total = total + num1;
         console.log("New total= " + total);
-        $('#yourScore').text(total);
+        $(".score").text(total);
         //sets win/lose conditions
         if (total == random) {
             winning();
@@ -57,9 +59,9 @@ $(document).ready(function () {
         }
     })
     $('#crystal2').on('click', function () {
-        total = total + num1;
+        total = total + num2;
         console.log("New total= " + total);
-        $('#yourScore').text(total);
+        $(".score").text(total);
         //sets win/lose conditions
         if (total == random) {
             winning();
@@ -69,9 +71,9 @@ $(document).ready(function () {
         }
     })
     $('#crystal3').on('click', function () {
-        total = total + num1;
+        total = total + num3;
         console.log("New total= " + total);
-        $('#yourScore').text(total);
+        $(".score").text(total);
         //sets win/lose conditions
         if (total == random) {
             winning();
@@ -81,9 +83,9 @@ $(document).ready(function () {
         }
     })
     $('#crystal4').on('click', function () {
-        total = total + num1;
+        total = total + num4;
         console.log("New total= " + total);
-        $('#yourScore').text(total);
+        $(".score").text(total);
         //sets win/lose conditions
         if (total == random) {
             winning();
@@ -92,4 +94,6 @@ $(document).ready(function () {
             losing();
         }
     });
+// appending the crystal totals to the "your score" box
+
 });
