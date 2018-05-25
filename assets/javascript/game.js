@@ -21,9 +21,10 @@ $(document).ready(function () {
     $("#losses").text("Losses:" + losses);
 
     // adding total wins
-    function winner() {
+    function winning() {
         wins++;
         $("#wins").text("Wins:" + wins);
+        reset();
     }
 
     // adding total losses
@@ -38,10 +39,12 @@ $(document).ready(function () {
     function reset() {
         random = Math.floor(Math.random() * 120 + 19);
         $(".randomNumber").text(random);
-        num1 = Math.floor(Math.random() * 11 + 1);
-        num2 = Math.floor(Math.random() * 11 + 1);
-        num3 = Math.floor(Math.random() * 11 + 1);
-        num4 = Math.floor(Math.random() * 11 + 1);
+        // num1 = Math.floor(Math.random() * 11 + 1);
+        // num2 = Math.floor(Math.random() * 11 + 1);
+        // num3 = Math.floor(Math.random() * 11 + 1);
+        // num4 = Math.floor(Math.random() * 11 + 1);
+
+        generateFour();
         total = 0;
         $(".score").text(total);
     }
@@ -94,6 +97,68 @@ $(document).ready(function () {
             losing();
         }
     });
-// appending the crystal totals to the "your score" box
+
+
+    function generateCrystals(i){
+        var randomNumber = Math.floor(Math.random() * 11 + 1);
+
+        var crystalHolderDiv = $("<div>");
+
+        crystalHolderDiv.attr(
+            {
+               "class": "col-md-2 crystal",
+               "data-value": randomNumber 
+            }
+        );
+
+
+        var crystalImageDiv = $("<img>");
+
+        crystalImageDiv.attr(
+            {
+                "src": "./assets/images/crystal" + i + ".PNG"
+            }
+        );
+
+        crystalHolderDiv.append(crystalImageDiv);
+
+        $(".buttons").append(crystalHolderDiv);
+
+        
+    }
+
+    function generateFour(){
+        $(".buttons").empty();
+        for(var i = 1; i < 5; i++){
+            generateCrystals(i);
+        }
+    }
+
+    generateFour();
+
+
+
+    $(".buttons").on("click", ".crystal", function(){
+        console.log($(this));
+
+        console.log($(this)[0].dataset.value)
+
+        var currentGemValue = parseInt($(this)[0].dataset.value);
+
+        total = total + currentGemValue;  
+        
+        $(".score").text(total);
+
+        console.log(total);
+
+        if(total === random){
+            winning();
+        }
+        else if (total > random){
+            losing();
+        }
+
+        
+    })
 
 });
