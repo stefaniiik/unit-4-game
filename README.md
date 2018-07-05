@@ -13,3 +13,6 @@ Click on a crystal to see the total of that crystal. Each crystal is worth a dif
 <ul>Javascript</ul>
 <ul>jQuery</ul>
 <ul>Bootstrap</ul>
+
+
+You can view the deployed project here: https://stefaniiik.github.io/unit-4-game/
